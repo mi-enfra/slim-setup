@@ -1,14 +1,25 @@
 <?php
-    use Slim\App;
-
     require __DIR__ . '/vendor/autoload.php';
-    require __DIR__ . '/src/environment.php';
     
-    $settings = require __DIR__ . '/src/settings.php';
-    $app = new App($settings);
+    use App\DependencyInjector;
+    use App\Environment;
+    use App\MiddlewareInjector;
+    use App\Router;
+    use App\Setting;
+    use Slim\App;
     
-    require __DIR__ . '/src/dependencies.php';
-    require __DIR__ . '/src/middleware.php';
-    require __DIR__ . '/src/routes.php';
+    $environment = Environment::setup();
+
+    $setting = Setting::get();
+    $app = new App($setting);
+    
+    $dependency = new DependencyInjector();
+    $app = $dependency->inject($app);
+
+    $middleware = new MiddlewareInjector();
+    $app = $middleware->inject($app);
+
+    $router = new Router();
+    $app = $router->setRoutes($app);
     
     $app->run();
