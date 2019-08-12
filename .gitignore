@@ -1,5 +1,5 @@
 coverage-report/
-error/*.log
+logs/*.log
 metrics-report/
 private/.env
 temp/
