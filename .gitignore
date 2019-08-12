@@ -1,0 +1,6 @@
+coverage-report/
+error/*.log
+metrics-report/
+private/.env
+temp/
+vendor/
