@@ -8,7 +8,7 @@
     use App\Setting;
     use Slim\App;
     
-    $environment = Environment::setup();
+    Environment::setup();
 
     $setting = Setting::get();
     $app = new App($setting);
