@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bash php-tasks.sh
+git add coverage-report.txt
