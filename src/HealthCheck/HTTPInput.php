@@ -1,12 +1,14 @@
 <?php
-    namespace App\Response;
+    namespace App\HealthCheck;
 
-    use App\Shared\Interfaces\HTTPInput;
+    use App\HealthCheck\HealthCheck;
+    use App\HealthCheck\HTTPOutput;
+    use App\Shared\Interfaces\HTTPInputInterface;
     use Psr\Container\ContainerInterface;
     use Slim\Http\Request;
     use Slim\Http\Response;
 
-final class HealthCheck implements HTTPInput
+final class HTTPInput implements HTTPInputInterface
 {
     protected $container;
 
@@ -17,14 +19,12 @@ final class HealthCheck implements HTTPInput
 
     public function __invoke(Request $request, Response $response, Array $args) : Response
     {
-        return $response->withJson([
-            'Environment' => $_ENV['ENVIRONMENT'],
-            'Response Time' => $this->getRunTime() . 'ms',
-        ]);
+        $output = new HTTPOutput($response);
+        $health = new HealthCheck($output);
+        return $health->respond();
     }
 
     private function getRunTime() : string
     {
-        return strval(number_format(1000 * (microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'])));
     }
 }

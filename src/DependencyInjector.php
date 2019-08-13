@@ -3,8 +3,8 @@
     namespace App;
 
     use Slim\App;
+    use App\HealthCheck\HTTPInput as HealthCheck;
     use App\Response\DefaultForbidden;
-    use App\Response\HealthCheck;
 
 final class DependencyInjector
 {
