@@ -3,7 +3,8 @@
     namespace App;
 
     use Slim\App;
-    use App\DefaultResponse\DefaultResponse;
+    use App\Response\DefaultForbidden;
+    use App\Response\HealthCheck;
 
 final class DependencyInjector
 {
@@ -12,7 +13,11 @@ final class DependencyInjector
         $container = $app->getContainer();
 
         $container['DefaultResponse'] = function ($container) {
-            return new DefaultResponse($container);
+            return new DefaultForbidden($container);
+        };
+
+        $container['HealthCheck'] = function ($container) {
+            return new HealthCheck($container);
         };
         
         return $app;

@@ -8,12 +8,7 @@ final class Router
 {
     public function setRoutes(App $app) : App
     {
-        $app->get('/hello[/]', function ($request, $response, $args) {
-            return $response->withJson([
-                'Hello' => 'World',
-                'Environment' => $_ENV['ENVIRONMENT'],
-            ]);
-        });
+        $app->get('/health[/]', 'HealthCheck');
 
         $app->any('/[{path:.*}]', 'DefaultResponse');
         

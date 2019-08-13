@@ -1,13 +1,14 @@
 <?php
-    namespace App\DefaultResponse;
+    namespace App\Response;
 
+    use App\Shared\Interfaces\HTTPInput;
     use Psr\Container\ContainerInterface;
     use Slim\Http\Request;
     use Slim\Http\Response;
 
-final class DefaultResponse
+final class DefaultForbidden implements HTTPInput
 {
-    private $container;
+    protected $container;
 
     public function __construct(ContainerInterface $container)
     {
