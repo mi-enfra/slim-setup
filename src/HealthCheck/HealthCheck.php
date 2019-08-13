@@ -1,13 +1,13 @@
 <?php
     namespace App\HealthCheck;
 
-    use App\Shared\Interfaces\HTTPOutputInterface;
+    use App\Shared\Interfaces\OutputInterface;
 
 final class HealthCheck
 {
     protected $output;
 
-    public function __construct(HTTPOutputInterface $output)
+    public function __construct(OutputInterface $output)
     {
         $this->output = $output;
     }

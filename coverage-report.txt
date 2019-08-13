@@ -1,7 +1,7 @@
 
 
 Code Coverage Report:    
-  2019-08-13 21:45:29    
+  2019-08-13 22:21:01    
                          
  Summary:                
   Classes: 30.00% (3/10) 
@@ -12,7 +12,7 @@ Code Coverage Report:
   Methods: 100.00% ( 3/ 3)   Lines: 100.00% (  6/  6)
 \App\HealthCheck::App\HealthCheck\HealthCheckTest
   Methods:  66.67% ( 2/ 3)   Lines:  75.00% (  6/  8)
-\App\HealthCheck::App\HealthCheck\TestInput
+\App\HealthCheck\Test::App\HealthCheck\Test\Input
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  3/  3)
-\App\HealthCheck::App\HealthCheck\TestOutput
+\App\HealthCheck\Test::App\HealthCheck\Test\Output
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
