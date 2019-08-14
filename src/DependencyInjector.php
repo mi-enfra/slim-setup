@@ -24,6 +24,10 @@ final class DependencyInjector
             return $capsule;
         };
 
+        $container['CRUD'] = function ($container) {
+            return new CRUD($container);
+        };
+
         $container['DefaultResponse'] = function ($container) {
             return new DefaultForbidden($container);
         };

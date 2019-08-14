@@ -8,6 +8,8 @@ final class Router
 {
     public function setRoutes(App $app) : App
     {
+        $app->get('/crud[/]', 'CRUD');
+
         $app->get('/health[/]', 'HealthCheck');
 
         $app->any('/[{path:.*}]', 'DefaultResponse');
